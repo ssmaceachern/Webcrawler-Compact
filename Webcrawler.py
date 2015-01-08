@@ -3,7 +3,7 @@
 
 import re, urllib
 
-textfile = file('depth_1.txt','wt')
+tf = file('results.txt','wt')
 print "Enter the URL you wish to crawl in Double Quotes("")..."
 print 'Example  - "http://www.google.com" '
 input_url = input("#>> ")
@@ -13,5 +13,5 @@ for link in re.findall('''href=["'](.[^"']+)["']''', urllib.urlopen(input_url).r
         print link 
         for found_link in re.findall('''href=["'](.[^"']+)["']''', urllib.urlopen(link).read(), re.I):
                 print found_link
-                textfile.write(found_link + '\n')
-textfile.close()
+                tf.write(found_link + '\n')
+tf.close()
